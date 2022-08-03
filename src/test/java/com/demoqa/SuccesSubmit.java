@@ -1,19 +1,16 @@
 package com.demoqa;
 
 import com.codeborne.selenide.Configuration;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-
-
 import java.io.File;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.open;
+
 
 public class SuccesSubmit {
 
@@ -23,6 +20,7 @@ public class SuccesSubmit {
        Configuration.browser = "chrome";
        Configuration.browserSize = "1920x1080";
     }
+
     @Test
     void fillForm (){
        open("/automation-practice-form");
@@ -40,7 +38,7 @@ public class SuccesSubmit {
         $(By.id("subjectsInput")).setValue("Math").pressEnter();
         $(byCssSelector("[for='hobbies-checkbox-1']")).click();
         $(byCssSelector("[for='hobbies-checkbox-2']")).click();
-        $(By.id("uploadPicture")).uploadFile(new File("src/test_picture/priemlemo.jpg"));
+        $(By.id("uploadPicture")).uploadFile(new File("src/test/resources/priemlemo.jpg"));
         $(By.id("currentAddress")).setValue("test address");
         $(By.id("state")).click();
         $(byText("Haryana")).click();
@@ -61,6 +59,7 @@ public class SuccesSubmit {
              text("Haryana Karnal")
      );
     }
+
     @AfterAll
  static void closing(){
     closeWebDriver();
