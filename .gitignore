@@ -3,7 +3,7 @@ target/
 build/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
-!**/src/test/**
+!**/src/com.demoqa.test/**
 
 ### STS ###
 .apt_generated
