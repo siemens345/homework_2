@@ -2,13 +2,13 @@ package com.demoqa.test;
 
 import com.codeborne.selenide.Configuration;
 import com.demoqa.pageobject.Pageobject;
-
 import com.demoqa.pageobject.components.ResultModal;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.demoqa.pageobject.testData.Data.*;
 
 
 public class SuccesSubmit {
@@ -25,28 +25,28 @@ public class SuccesSubmit {
     @Test
     void fillForm() {
         pageobject.openPage()
-                .setFirstName("Семен")
-                .setLastName("Кучма")
-                .setEmail("test@test.ru")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setEmail(email)
                 .chooseGender()
-                .setUserNumber("9516547825")
-                .setBirthDate("December", "1995")
-                .setSubject("Math")
+                .setUserNumber(number)
+                .setBirthDate(month, year)
+                .setSubject(subject)
                 .setHobbies()
                 .uploadPicture()
-                .setCurrentAddress("com.demoqa.test address")
-                .setStateCity("Haryana", "Karnal");
+                .setCurrentAddress(address)
+                .setStateCity(state, city);
         resultModal.checkTitle()
-                .checkResult("Семен Кучма")
-                .checkResult("test@test.ru")
-                .checkResult("Male")
-                .checkResult("9516547825")
-                .checkResult("26 December,1995")
-                .checkResult("Math")
-                .checkResult("Sports, Reading")
-                .checkResult("priemlemo.jpg")
-                .checkResult("com.demoqa.test address")
-                .checkResult("Haryana Karnal");
+                .checkResult(fullName)
+                .checkResult(email)
+                .checkResult(gender)
+                .checkResult(number)
+                .checkResult(birthDate)
+                .checkResult(subject)
+                .checkResult(hobbies)
+                .checkResult(picture)
+                .checkResult(address)
+                .checkResult(stateCity);
     }
 
     @AfterAll
