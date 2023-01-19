@@ -3,6 +3,7 @@ package com.demoqa.test;
 import com.codeborne.selenide.Configuration;
 import com.demoqa.pageobject.Pageobject;
 import com.demoqa.pageobject.components.ResultModal;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
