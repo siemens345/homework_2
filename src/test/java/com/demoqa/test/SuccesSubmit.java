@@ -1,6 +1,7 @@
 package com.demoqa.test;
 
 import com.codeborne.selenide.Configuration;
+import com.demoqa.pageobject.Attechments;
 import com.demoqa.pageobject.Pageobject;
 import com.demoqa.pageobject.components.ResultModal;
 import io.qameta.allure.Step;
@@ -53,7 +54,9 @@ public class SuccesSubmit {
     @AfterAll
     static void closing() {
         closeWebDriver();
+        Attechments.addVideo();
     }
+
 
 }
 
