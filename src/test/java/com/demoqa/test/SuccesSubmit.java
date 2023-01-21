@@ -62,8 +62,7 @@ public class SuccesSubmit {
 
     @AfterAll
     static void closing() {
-        closeWebDriver();
-
+        Attechments.addVideo();
     }
 
 
