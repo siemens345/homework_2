@@ -1,18 +1,11 @@
 package com.demoqa.test;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
-import com.demoqa.pageobject.Attechments;
 import com.demoqa.pageobject.Pageobject;
 import com.demoqa.pageobject.components.ResultModal;
-import io.qameta.allure.Step;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.demoqa.pageobject.testData.Data.*;
 
 
@@ -22,16 +15,11 @@ public class SuccesSubmit {
 
     @BeforeAll
     static void configure() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-        Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
     }
+
 
     @Test
     void fillForm() {
@@ -58,12 +46,7 @@ public class SuccesSubmit {
                 .checkResult(picture)
                 .checkResult(address)
                 .checkResult(stateCity);
-        Attechments.addVideo();
-    }
 
-    @AfterAll
-    static void closing() {
-        Attechments.addVideo();
     }
 
 
